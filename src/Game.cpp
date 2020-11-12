@@ -196,7 +196,7 @@ void Game::handleWinState() {
     }
 }
 
-void Game::actionPerformed(const std::string& message) {
+void Game::catchTextFieldResult(const std::string& message) {
     std::string answer = message;
     util::toUpperCase(answer);
     if (answer == paardensprong.solution) {

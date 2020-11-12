@@ -149,7 +149,7 @@ void TextField::keyPressed(sf::Event::KeyEvent& e)
         }
         else if (e.code == sf::Keyboard::Enter) {
             for (TextFieldListener* listener : listeners) {
-                listener->actionPerformed(user_input);
+                listener->catchTextFieldResult(user_input);
             }
         }
 

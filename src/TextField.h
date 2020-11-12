@@ -9,7 +9,7 @@
 class TextFieldListener {
 public:
 	virtual ~TextFieldListener() {};
-	virtual void actionPerformed(const std::string& message) = 0;
+	virtual void catchTextFieldResult(const std::string& message) = 0;
 };
 
 struct TextField {

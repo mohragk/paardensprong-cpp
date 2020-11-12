@@ -54,6 +54,7 @@ project "paardensprong-game"
 		optimize "On"
 		links
 		{	
+			"sfml-main",
 			"sfml-graphics-s",
 			"sfml-window-s",
 			"sfml-system-s",

@@ -84,7 +84,7 @@ struct Game : public TextFieldListener {
 
     void handleWinState();
 
-    void actionPerformed(const std::string& message) override;
+    void catchTextFieldResult(const std::string& message) override;
    
     void update(f32 dt);
 
