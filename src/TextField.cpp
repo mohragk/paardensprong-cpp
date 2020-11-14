@@ -88,7 +88,17 @@ void TextField::keyPressed(sf::Event::KeyEvent& e)
     
 	std::string character_input = util::getStringFromKeyCode(e.code);
 	if (character_input != "") {
-        
+        // Delete selection
+        if (selecting) { 
+            //selecting = false;
+            i16 erase_index = std::min(cursor_index, selection_cursor_index);
+            i16 erase_count = std::abs(selection_cursor_index - cursor_index);
+            user_input.erase(erase_index, erase_count);
+            cursor_index = erase_index;
+            selection_cursor_index = cursor_index;
+        }
+
+        // Insert new character
         if (user_input.size() < max_input_length) {
             user_input.insert(cursor_index, character_input);
             cursor_index++;
