@@ -8,7 +8,6 @@ void TextField::paint(sf::RenderWindow& window)
    
 
     // draw user input
-   
     sf::Text text_shape = sf::Text(user_input, font, text_size);
     text_shape.setFillColor(text_color);
     if (disabled) {
@@ -30,21 +29,23 @@ void TextField::paint(sf::RenderWindow& window)
     selection_shape.setFillColor( selection_color );
     selection_shape.setPosition({ selection_x, selection_y });
     
-    
+    // Pre-draw selection marquee
     window.draw(selection_shape);
 
 
-    // draw text over the selection shape
-
-    u16 valid_user_input_size = 8;
-    if (user_input.size() > valid_user_input_size) {
-        std::string valid_user_input = user_input.substr(0, valid_user_input_size);
-        std::string extraneous_user_input = user_input.substr(valid_user_input_size, user_input.size() - 1);
+    
+    // Draw letters dimmer when exceeding the maximum word length of the puzzle
+    u16 puzzleword_length = 8;
+    if (user_input.size() > puzzleword_length) {
+        std::string valid_user_input = user_input.substr(0, puzzleword_length);
+        std::string extraneous_user_input = user_input.substr(puzzleword_length, user_input.size() - 1);
         
+        // "Regular" text shape
         sf::Text valid_text_shape = sf::Text(valid_user_input, font, text_size);
         valid_text_shape.setPosition(text_shape.getPosition());
         valid_text_shape.setFillColor(text_shape.getFillColor());
 
+        // "Dimmed" text shape
         f32 extraneous_user_input_x = valid_text_shape.findCharacterPos(valid_user_input.size()).x;
         sf::Text extraneous_text_shape = sf::Text(extraneous_user_input, font, text_size);
         extraneous_text_shape.setPosition(extraneous_user_input_x, valid_text_shape.getPosition().y);
@@ -90,7 +91,6 @@ void TextField::keyPressed(sf::Event::KeyEvent& e)
 	if (character_input != "") {
         // Delete selection
         if (selecting) { 
-            //selecting = false;
             i16 erase_index = std::min(cursor_index, selection_cursor_index);
             i16 erase_count = std::abs(selection_cursor_index - cursor_index);
             user_input.erase(erase_index, erase_count);
