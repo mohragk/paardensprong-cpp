@@ -95,8 +95,9 @@ namespace util {
     }
 
     static int getRandomIndex(int length) {
-        int number = rand() % length;
-        return number;
+        static std::hash<int> hasher;
+        static int seed = 11;
+        return std::abs((int)hasher(seed++)) % length;
     }
 
 
