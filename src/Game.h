@@ -77,7 +77,7 @@ struct Game : public TextFieldListener {
    
     PaardensprongData generatePaardenSprong(std::string word);
     
-    std::vector<std::string> retrieveWordlist();
+    std::vector<std::string> loadWordlist(const char *filename);
 
     void shuffleWordlist(std::vector<std::string>& list);
 

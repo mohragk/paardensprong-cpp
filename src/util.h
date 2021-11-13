@@ -81,6 +81,13 @@ namespace util {
 #endif
     }
 
+    static std::string getAssetsPath() {
+        std::string cwd = getPath();
+        cwd += "/assets/";
+        return cwd;
+    }
+
+
     static void toUpperCase(std::string& str) {
         std::transform(str.begin(), str.end(), str.begin(), ::toupper);
     }

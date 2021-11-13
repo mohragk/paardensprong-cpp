@@ -4,7 +4,7 @@
 
 Game::Game() {
    
-    word_list = retrieveWordlist();
+    word_list = loadWordlist("word_list_en.txt");
     shuffleWordlist(word_list);
     user_input_field.addListener(this);
 
@@ -143,14 +143,14 @@ PaardensprongData Game::generatePaardenSprong(std::string word) {
 
 }
 
-std::vector<std::string> Game::retrieveWordlist() {
+std::vector<std::string> Game::loadWordlist(const char *filename) {
     std::vector<std::string> the_list = std::vector<std::string>();
     std::ifstream fs;
     std::string line;
     const std::regex reg("[a-z]+");
 
-    std::string path = util::getPath();
-    fs.open(path+"/assets/word_list_en.txt");
+    std::string path = util::getAssetsPath();
+    fs.open(path+filename);
 
 
     if (fs.is_open()) {
