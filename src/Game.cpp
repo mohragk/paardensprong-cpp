@@ -150,7 +150,7 @@ std::vector<std::string> Game::retrieveWordlist() {
     const std::regex reg("[a-z]+");
 
     std::string path = util::getPath();
-    fs.open(path+"/assets/word_list.txt");
+    fs.open(path+"/assets/word_list_en.txt");
 
 
     if (fs.is_open()) {

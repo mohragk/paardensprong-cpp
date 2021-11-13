@@ -19,8 +19,8 @@ int main()
     context_settings.minorVersion= { 0 };
    
     std::string window_title{ "Paardensprong Game" };
-    u16 window_width{ 1024 };
-    u16 window_height{ 768 };
+    u16 window_width{ 1280 };
+    u16 window_height{ 1024 };
     u16 prev_window_width{ window_width };
     u16 prev_window_height{ window_height };
    
@@ -91,13 +91,13 @@ int main()
 
                 else if (event.key.code == sf::Keyboard::F11) {
                     is_fullscreen = !is_fullscreen;
+                    window.close();
                     if (is_fullscreen) {
 
                         prev_window_width = window.getSize().x;
                         prev_window_height = window.getSize().y;
                         prev_window_pos_x = window.getPosition().x;
                         prev_window_pos_y = window.getPosition().y;
-
                         window.create(sf::VideoMode::getDesktopMode(), window_title, sf::Style::None, context_settings);
                         window.setPosition({ 0,0 });
                        
