@@ -27,7 +27,7 @@ struct Game : public TextFieldListener {
     TextField user_input_field;
     PaardensprongData paardensprong;
     
-    u32 word_index = 0;
+    u32 word_index{ 0  };
     std::vector<std::string> word_list;
 
     bool solved{ false };
@@ -95,11 +95,8 @@ struct Game : public TextFieldListener {
         window.display();
     }
 
-    
 
     void render(sf::RenderWindow& window);
-
-
 };
 
 
