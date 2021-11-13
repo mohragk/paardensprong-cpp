@@ -57,7 +57,7 @@ struct Cell {
             window.draw(shape);
         }
 
-        // draw leter
+        // draw letter
         {
             u16 text_size = u16(real_size - (real_size / 3.0f));
             sf::Text text_shape = sf::Text(letter, font, text_size);

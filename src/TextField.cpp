@@ -74,16 +74,11 @@ void TextField::paint(sf::RenderWindow& window)
         cursor_rect.setPosition({ cursor_pos_x, cursor_pos_y });
         window.draw(cursor_rect); 
     }
-
-
-    
 }
 
 void TextField::keyPressed(sf::Event::KeyEvent& e)
 {
     if (disabled) return;
-
-    
 
     time_millis = 0.0f;
     
