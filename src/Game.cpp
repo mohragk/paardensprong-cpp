@@ -2,9 +2,9 @@
 
 #include "Game.h"
 
-Game::Game() {
+Game::Game(u16 w, u16 h): window_dim_x(w), window_dim_y(h) {
    
-    word_list = loadWordlist("word_list_en.txt");
+    word_list = loadWordlist("word_list_EN.txt");
     shuffleWordlist(word_list);
     user_input_field.addListener(this);
 
@@ -56,6 +56,11 @@ void Game::reset() {
 
     user_input_field.disable(false);
     user_input_field.reset();
+}
+
+void Game::resize(f32 width, f32 height) {
+    window_dim_x = width;
+    window_dim_y = height;
 }
 
 

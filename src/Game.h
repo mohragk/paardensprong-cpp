@@ -53,7 +53,7 @@ struct Game : public TextFieldListener {
 
     sf::Font default_font{ util::getDefaultFont() };
       
-    Game();
+    Game(u16 w, u16 h);
     ~Game() {
         delete cell_grid;
     }
@@ -62,6 +62,8 @@ struct Game : public TextFieldListener {
     void playSound(std::string url);
     
     void reset();
+
+    void resize(f32 width, f32 height);
 
     void gainedFocus(bool in_focus) {
         is_in_focus = in_focus;
