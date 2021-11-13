@@ -16,5 +16,5 @@ Use the included premake5.lua script to create a project for your current platfo
 
 IMPORTANT! Only windows (vs2019) is tested. Other platforms are untested.
 
-## SFML
+### SFML
 This project uses SFML for it's rendering, audio and window management. For more info go to [the SFML website](https://www.sfml-dev.org/).
